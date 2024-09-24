@@ -1,0 +1,21 @@
+{
+    "defaultHeaders": {
+        "Content-Type": "application/json"
+    },
+
+    "iOSHeaders": {
+        "Content-Type": "application/json", 
+        "User-Agent": "iOS", 
+        "X-API-Version": "2.0", 
+        "X-Timestamp": "1597938715.938225", 
+        "X-Token": ""
+    },
+    
+    "AndroidHeaders": {
+        "Content-Type": "application/json", 
+        "User-Agent": "Android", 
+        "X-API-Version": "2.0", 
+        "X-Timestamp": "1597938715.938225", 
+        "X-Token": ""
+    }
+}
