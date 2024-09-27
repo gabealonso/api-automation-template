@@ -1,7 +1,7 @@
 /** LIBS & IMPORTS */
-const _ = require("../helpers/commons.js");
-const path = require('../helpers/data/path.json');
-const headers = require('../helpers/data/headers.json');
+import * as _ from "../helpers/commons.js";
+import path from '../helpers/data/path.json' with { type: 'json' };
+import headers from '../helpers/data/headers.json' with { type: 'json' };
 
 /** FUNCTIONS */
 
@@ -13,6 +13,6 @@ const getFactData = async () => {
 
 /** EXPORTS */
 
-module.exports = {
+export {
     getFactData
 };

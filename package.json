@@ -2,17 +2,18 @@
   "name": "api-automation-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./index.js",
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "test1": "env-cmd mocha tests/01_suite/* --timeout 800000"
   },
-
   "devDependencies": {
     "chai": "^5.1.1",
     "chai-http": "^5.0.0",
+    "chai-json-equal": "^0.0.1",
     "dotenv": "^16.4.5",
     "env-cmd": "^10.1.0",
     "mocha": "^10.7.3"

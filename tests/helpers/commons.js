@@ -1,11 +1,13 @@
-const chai = require("chai");
+import { use } from 'chai';
+import chaiHttp from 'chai-http';
+const chai = use(chaiHttp);
 
 /**
      * @param { String } path endpoint route
      * Common get flow
 */
 const common_get = async (path, headers) => {
-    const response = await chai.request(`${process.env.HOST}`).get(path).set(headers);
+    const response = await chai.request.execute(`${process.env.HOST}`).get(path).set(headers);
     return response;
 };
 
@@ -14,7 +16,7 @@ const common_get = async (path, headers) => {
      * Common get flow
 */
 const common_get_admin = async (path, headers) => {
-     const response = await chai.request(`${process.env.ADM_HOST}`).get(path).set(headers);
+     const response = await chai.request.execute(`${process.env.ADM_HOST}`).get(path).set(headers);
      return response;
 };
 
@@ -24,7 +26,7 @@ const common_get_admin = async (path, headers) => {
      * @param { Object } body data to send
 */
 const common_post = async (path, headers, body) => {
-    const response = await chai.request(`${process.env.HOST}`).post(path).set(headers).send(body);
+    const response = await chai.request.execute(`${process.env.HOST}`).post(path).set(headers).send(body);
     return response;
 };
 
@@ -33,7 +35,7 @@ const common_post = async (path, headers, body) => {
      * @param { String } id to delete
 */
 const delete_query = async (id) => {
-    const response = await chai.request(`${process.env.HOST}`).delete(`/customers/${id}`).set({"Authorization": `Bearer ${process.env.ACCESS_TOKEN}`});
+    const response = await chai.request.execute(`${process.env.HOST}`).delete(`/customers/${id}`).set({"Authorization": `Bearer ${process.env.ACCESS_TOKEN}`});
     return response;
 };
 
@@ -66,7 +68,7 @@ const deep_object_keys = (obj) => {
 };
 
 
-module.exports = {
+export {
     common_get,
     common_post,
     delete_query,
