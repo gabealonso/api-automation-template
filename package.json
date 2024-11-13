@@ -8,7 +8,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "test1": "env-cmd mocha tests/01_suite/* --timeout 800000"
+    "bookings": "env-cmd mocha tests/01_bookings/* --timeout 800000"
   },
   "devDependencies": {
     "chai": "^5.1.1",
