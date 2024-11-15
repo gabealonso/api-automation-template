@@ -1,3 +1,18 @@
 {
-    
+    "auth": {
+        "username" : "",
+        "password" : ""
+    },
+
+    "createBooking": {
+        "firstname" : "Sara",
+        "lastname" : "Sa",
+        "totalprice" : 23,
+        "depositpaid" : true,
+        "bookingdates" : {
+            "checkin" : "2020-01-01",
+            "checkout" : "2022-01-01"
+        },
+        "additionalneeds" : "Breakfast"
+    }
 }

@@ -1,5 +1,5 @@
 import { use } from 'chai';
-import chaiHttp from 'chai-http';
+import chaiHttp from 'chai-http/index.js';
 const chai = use(chaiHttp);
 
 /**
@@ -13,21 +13,21 @@ const common_get = async (path, headers) => {
 
 /**
      * @param { String } path endpoint route
-     * Common get flow
-*/
-const common_get_admin = async (path, headers) => {
-     const response = await chai.request.execute(`${process.env.ADM_HOST}`).get(path).set(headers);
-     return response;
-};
-
-/**
-     * @param { String } path endpoint route
      * @param { Object } path auth/config
      * @param { Object } body data to send
 */
 const common_post = async (path, headers, body) => {
     const response = await chai.request.execute(`${process.env.HOST}`).post(path).set(headers).send(body);
     return response;
+};
+
+/**
+     * @param { String } path endpoint route
+     * @param { Object } path auth/config
+*/
+const common_delete = async (path, headers, body) => {
+     const response = await chai.request.execute(`${process.env.HOST}`).delete(path).set(headers);
+     return response;
 };
 
 /**
@@ -71,10 +71,10 @@ const deep_object_keys = (obj) => {
 export {
     common_get,
     common_post,
+    common_delete,
     delete_query,
     status_200,
     lengthOf,
     check_model_and_data,
     deep_object_keys,
-    common_get_admin
 }

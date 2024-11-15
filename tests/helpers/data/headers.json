@@ -1,6 +1,9 @@
 {
     "defaultHeaders": {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Accept": "*/*",
+        "User-Agent": "PostmanRuntime/7.42.0",
+        "Cookie": ""
     },
 
     "iOSHeaders": {
