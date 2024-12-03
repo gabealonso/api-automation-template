@@ -7,8 +7,15 @@ const chai = use(chaiHttp);
      * Common get flow
 */
 const common_get = async (path, headers) => {
-    const response = await chai.request.execute(`${process.env.HOST}`).get(path).set(headers);
-    return response;
+     const response = await chai.request.execute(`${process.env.HOST}`).get(path).set(headers);
+     
+     if (response.status !== 200) {
+          console.log(`Path: ${path}`);
+          console.log(`Status: ${response.status}`);
+          console.log(`Status: ${response.body}`);
+     };
+     
+     return response;
 };
 
 /**
@@ -17,16 +24,14 @@ const common_get = async (path, headers) => {
      * @param { Object } body data to send
 */
 const common_post = async (path, headers, body) => {
-    const response = await chai.request.execute(`${process.env.HOST}`).post(path).set(headers).send(body);
-    return response;
-};
-
-/**
-     * @param { String } path endpoint route
-     * @param { Object } path auth/config
-*/
-const common_delete = async (path, headers, body) => {
-     const response = await chai.request.execute(`${process.env.HOST}`).delete(path).set(headers);
+     const response = await chai.request.execute(`${process.env.HOST}`).post(path).set(headers).send(body);
+     
+     if (response.status !== 200) {
+          console.log(`Path: ${path}`);
+          console.log(`Status: ${response.status}`);
+          console.log(`Status: ${response.body}`);
+     };
+     
      return response;
 };
 
@@ -71,10 +76,9 @@ const deep_object_keys = (obj) => {
 export {
     common_get,
     common_post,
-    common_delete,
     delete_query,
     status_200,
     lengthOf,
     check_model_and_data,
-    deep_object_keys,
+    deep_object_keys
 }
