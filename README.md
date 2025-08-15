@@ -6,6 +6,18 @@ This repository is a template for API test automation, using Mocha and Chai. The
 
 This project enables API endpoint testing for the Restful Booker API, a test API that supports operations for creating, reading, updating, and deleting bookings. The test scripts are structured into suites, which can be executed individually according to their purpose, using `npm` commands.
 
+## Install:
+`npm install`
+
+## .env file
+create in root folder
+```
+HOST=""
+USERNAME=""
+PASSWORD=""
+
+```
+
 ## Technologies
 
 - **Mocha**: JavaScript test framework.

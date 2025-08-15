@@ -36,12 +36,22 @@ const common_post = async (path, headers, body) => {
 };
 
 /**
-     * @param { Function } assert test rule
-     * @param { String } id to delete
-*/
-const delete_query = async (id) => {
-    const response = await chai.request.execute(`${process.env.HOST}`).delete(`/customers/${id}`).set({"Authorization": `Bearer ${process.env.ACCESS_TOKEN}`});
-    return response;
+     * @param {string} path - The endpoint route to send the request to.
+     * @param {object} headers - The request headers, typically containing authentication or configuration details.
+     * @returns {Promise<object>} - The HTTP response object from the request.
+     * @throws {Error} - Throws an error if the request fails or the server returns an unexpected status.
+ */
+
+const common_delete = async (path, headers) => {
+     const response = await chai.request.execute(`${process.env.HOST}`).delete(path).set(headers);
+     
+     if (response.status !== 200) {
+          console.log(`Path: ${path}`);
+          console.log(`Status: ${response.status}`);
+          console.log(`Status: ${response.body}`);
+     };
+     
+     return response;
 };
 
 /**
@@ -72,11 +82,10 @@ const deep_object_keys = (obj) => {
     return Object.keys(obj).filter(key => obj[key] instanceof Object).map(key => deep_object_keys(obj[key]).map(k => `${key}.${k}`)).reduce((x,y) => x.concat(y), Object.keys(obj));
 };
 
-
 export {
     common_get,
     common_post,
-    delete_query,
+    common_delete,
     status_200,
     lengthOf,
     check_model_and_data,

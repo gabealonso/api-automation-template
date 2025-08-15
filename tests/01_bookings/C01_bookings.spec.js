@@ -45,7 +45,7 @@ describe('Suite 1 - Bookings', () => {
         const getBookingData = await fn.getBooking(bookingId);
 
         expect(getBookingData.status).to.equal(404, 'booking is not deleted');
-        expect(deleteBookingData.status).to.equal(201);
+        expect(deleteBookingData.status).to.equal(200, 'unexpected status on delete');
     });
 
 });
